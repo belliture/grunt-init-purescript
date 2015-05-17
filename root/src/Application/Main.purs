@@ -1,7 +1,8 @@
-module Starter.Kit.Example where
+module Application.Main where
 
 import Data.Array
 import Data.Maybe
+import Debug.Trace (print)
 
 -- This module defines a single function diffs, which
 -- returns the differences for an increasing array.
@@ -24,3 +25,5 @@ diffs (x : tail@(x' : xs)) | x <= x' = do
   tailDiffs <- diffs tail
   return (x' - x : tailDiffs)
 diffs _ = Nothing
+
+main = print $ diffs (1..10)

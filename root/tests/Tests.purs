@@ -5,8 +5,8 @@ import Data.Maybe
 
 import Debug.Trace
 
--- Import the library's module(s)
-import Starter.Kit.Example
+-- Import the application code
+import Application.Main hiding (main)
 
 -- Import Test.QuickCheck, which supports property-based testing
 import Test.QuickCheck
@@ -20,7 +20,7 @@ main = do
   -- Use quickCheck' to override the number of tests to perform.
   -- In this case, we only need to run the test once, since there is
   -- only one empty list.
-  
+
   trace "The differences of an empty list are empty."
   quickCheck' 1 $ diffs [] == Just []
 
@@ -36,4 +36,3 @@ main = do
   trace "The diffs function returns Nothing for a reverse-sorted list with \
         \at least one pair of unequal elements."
   quickCheck $ \n1 ns -> isNothing $ diffs $ reverse $ sort (n1 : (n1 + 1) : ns)
-

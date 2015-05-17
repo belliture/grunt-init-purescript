@@ -1,10 +1,10 @@
 "use strict";
 
-exports.description = "Create a PureScript project with source modules and QuickCheck tests.";
+exports.description = "Create a PureScript project (executable program) with source modules and QuickCheck tests.";
 
 exports.after = "You can now build the project as follows: \n" +
                 "\n" +
-                "  npm install\n" + 
+                "  npm install\n" +
                 "  bower update\n" +
                 "  grunt";
 
@@ -12,13 +12,13 @@ exports.warnOn = "*";
 
 exports.template = function(grunt, init, done) {
 
-  init.process({}, 
-    [ init.prompt("name", "starter-kit")
+  init.process({},
+    [ init.prompt("name", "my-application")
     , init.prompt("description", "An empty PureScript project.")
     , init.prompt("version")
     , init.prompt("licenses")
     , init.prompt("author_name")
-    ], 
+    ],
     function(err, props) {
       var files = init.filesToCopy(props);
 
