@@ -38,9 +38,17 @@ module.exports = function(grunt) {
       tests: {
         src: "tmp/index.js"
       }
+    },
+
+    watch: {
+      all: {
+        files: ["tests/Tests.purs", "<%=libFiles%>"],
+        tasks: ["make", "test"]
+      }
     }
   });
 
+  grunt.loadNpmTasks("grunt-contrib-watch");
   grunt.loadNpmTasks("grunt-contrib-copy");
   grunt.loadNpmTasks("grunt-contrib-clean");
   grunt.loadNpmTasks("grunt-execute");
